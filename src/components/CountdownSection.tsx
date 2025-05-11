@@ -26,7 +26,7 @@ const CountdownSection: React.FC = () => {
           {/* Hustle Loyalty Respect Logo */}
            <div className="logo-pulse">
      <img
-        src="./wwe.png"
+        src="https://raw.githubusercontent.com/CodebyShauryaIPU/John-Cena/refs/heads/main/wwe.png"
         alt="Cena Logo"
         className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 mx-auto mb-4 animate-pulse-slow"
       />
