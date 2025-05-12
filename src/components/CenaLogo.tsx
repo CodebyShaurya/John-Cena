@@ -6,7 +6,7 @@ const CenaLogo: React.FC = () => {
      <img
         src="https://raw.githubusercontent.com/CodebyShauryaIPU/John-Cena/refs/heads/main/ucme.png"
         alt="Cena Logo"
-        className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 mx-auto mb-4 animate-pulse-slow"
+        className="w-32 h-32 md:w-24 md:h-24 lg:w-32 lg:h-32 mx-auto mb-4 animate-pulse-slow"
       />
     </div>
   );

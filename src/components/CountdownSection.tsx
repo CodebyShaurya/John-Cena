@@ -11,7 +11,7 @@ const CountdownSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="flex items-center justify-center relative overflow-hidden">
       {/* Background gradient/overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-cena-navy via-black to-black opacity-70"></div>
 
@@ -22,23 +22,23 @@ const CountdownSection: React.FC = () => {
         </div>
 
         {/* Center Content */}
-        <div className={`w-1/3 md:w-1/2 text-center z-10 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
+        <div className={`h-screen  w-1/3 md:w-1/2 text-center z-10 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
           {/* Hustle Loyalty Respect Logo */}
            <div className="logo-pulse">
      <img
         src="https://raw.githubusercontent.com/CodebyShauryaIPU/John-Cena/refs/heads/main/wwe.png"
         alt="Cena Logo"
-        className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 mx-auto mb-4 animate-pulse-slow"
+        className="w-32 h-32 md:w-48 md:h-48 mx-auto md:mb-1 mb-10  animate-pulse-slow"
       />
     </div>
 
           {/* Main Countdown */}
-          <div className="spotlight relative max-w-4xl mx-auto my-8 md:p-8 md:p-16">
+          <div className="spotlight relative max-w-4xl mx-auto  md:p-8 md:p-16">
             <CountdownTimer />
           </div>
 
           {/* You Can't See Me */}
-          <div className="mt-8">
+          <div className="md:mt-4 mt-16">
             <CenaLogo />
             {/* <h2 className="title-text text-xl md:text-3xl lg:text-4xl mt-4 animate-pulse-slow">
               YOU CAN'T SEE ME
