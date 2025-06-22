@@ -1,4 +1,4 @@
-import React from 'react';
+
 import CountdownSection from './components/CountdownSection';
 import Footer from './components/Footer';
 

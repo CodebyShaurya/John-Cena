@@ -4,7 +4,7 @@ interface SlideshowProps {
   direction: 'left' | 'right';
 }
 
-const Slideshow: React.FC<SlideshowProps> = ({ direction }) => {
+const Slideshow: React.FC<SlideshowProps> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
