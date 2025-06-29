@@ -285,9 +285,9 @@ const JohnCenaCountdown: React.FC = () => {
 
         {/* Mobile Photo Display (optional, if you want to show on mobile) */}
         {/* <MobilePhotoDisplay /> */}
-        <div className={`  w-full text-white text-center text-xl`}>
+        {/* <div className={`  w-full text-white text-center text-xl`}>
             Developed by - <a href="https://github.com/CodebyShaurya/" target="_blank" rel="noopener noreferrer" >Shaurya</a>
-          </div>
+          </div> */}
       </div>
     </div>
   );
