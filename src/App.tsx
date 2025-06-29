@@ -188,8 +188,43 @@ const JohnCenaCountdown: React.FC = () => {
 
         {/* Main Row: Photos + Counter */}
         <div className="flex flex-col items-center justify-center gap-8 md:gap-12 mb-8">
-          {/* Mobile Photo (visible only on mobile) */}
-          <div className="w-full lg:hidden mb-4">
+          {/* Mobile: Timer above Photo */}
+          <div className="w-full flex flex-col items-center lg:hidden mb-4">
+            {/* Timer */}
+            <div
+              className={`
+                flex flex-col items-center justify-center
+                rounded-2xl
+                p-8
+                shadow-2xl
+                border-4
+                transition-all duration-300
+                text-5xl font-extrabold
+                cursor-pointer
+                transform
+                mb-6
+                ${isWhiteTheme
+                  ? `bg-white text-black ${themeColor.border} hover:${themeColor.shadow} hover:scale-105`
+                  : `bg-black text-white ${themeColor.border} hover:${themeColor.shadow} hover:scale-105`
+                }
+                hover:${themeColor.ring}
+                group
+              `}
+              title="Countdown to the Farewell Tour"
+            >
+              <span className="mb-2 tracking-widest drop-shadow-lg group-hover:animate-pulse">
+                {timeLeft.days}
+              </span>
+              <span className={`
+                text-base font-semibold uppercase tracking-wider
+                ${themeColor.label}
+                transition-colors duration-300
+                group-hover:underline
+              `}>
+                Days Left
+              </span>
+            </div>
+            {/* Photo */}
             <MobilePhotoDisplay />
           </div>
 
