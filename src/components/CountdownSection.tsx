@@ -45,9 +45,7 @@ const CountdownSection: React.FC = () => {
             </h2> */}
           </div>
 
-          <div className="absolute bottom-4 w-full text-center text-white text-sm">
-        Developed by - <a href="https://github.com/CodebyShaurya/" target="_blank" rel="noopener noreferrer" className="underline">Shaurya</a>
-      </div>
+          
         </div>
 
         {/* Right Slideshow */}
