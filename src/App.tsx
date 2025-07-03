@@ -173,6 +173,7 @@ const JohnCenaCountdown: React.FC = () => {
   return (
     <div className={`h-screen w-full bg-gradient-to-br ${currentPhoto.bgClass} flex flex-col justify-center p-4 transition-all duration-1000 overflow-auto`}>
       <div className="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center">
+      <Analytics />
 
         {/* Subtitle */}
         <div className="text-center mb-8">
