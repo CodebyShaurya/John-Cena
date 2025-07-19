@@ -84,7 +84,7 @@ const JohnCenaCountdown: React.FC = () => {
       setCurrentPhotoIndex((prevIndex) => 
         (prevIndex + 1) % johnCenaPhotos.length
       );
-    }, 4000);
+    }, 1000);
 
     return () => clearInterval(photoTimer);
   }, [johnCenaPhotos.length]);
@@ -153,7 +153,7 @@ const JohnCenaCountdown: React.FC = () => {
         };
       case 'white':
         return {
-          border: 'border-gray-300',
+          border: 'border-yellow-400',
           shadow: 'shadow-yellow-400/60',
           ring: 'ring-yellow-400/40',
           label: 'text-yellow-600'
