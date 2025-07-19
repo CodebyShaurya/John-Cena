@@ -19,7 +19,7 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 15
+    days: 14
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
