@@ -146,10 +146,10 @@ const JohnCenaCountdown: React.FC = () => {
         };
       case 'black':
         return {
-          border: 'border-gray-800',
-          shadow: 'shadow-gray-700/60',
-          ring: 'ring-gray-700/40',
-          label: 'text-gray-800'
+          border: 'border-gray-300',
+          shadow: 'shadow-gray-300/60',
+          ring: 'ring-gray-300/40',
+          label: 'text-gray-300'
         };
       case 'white':
         return {
