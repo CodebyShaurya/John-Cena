@@ -351,5 +351,6 @@ const predictedNights = [
   { date: "2025-09-05", event: "SMACKDOWN (CHICAGO, IL)" },
   { date: "2025-09-15", event: "RAW (SPRINGFIELD, MA)" },
   { date: "2025-10-11", event: "CROWN JEWEL: PERTH (PERTH, AUSTRALIA)" },
-  { date: "2025-11-29", event: "SURVIVOR SERIES (San Diego)" }
+  { date: "2025-11-29", event: "SURVIVOR SERIES (San Diego)" },
+  { date: "Mid December", event: "Unknown" },
 ];
