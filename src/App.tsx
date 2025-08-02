@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Confetti from 'react-confetti';
 
 interface Photo {
   url: string;
@@ -298,8 +299,57 @@ const JohnCenaCountdown: React.FC = () => {
             Developed by - <a href="https://github.com/CodebyShaurya/" target="_blank" rel="noopener noreferrer" >Shaurya</a>
           </div> */}
       </div>
+
+      <>
+        {/* Confetti */}
+        <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={250} recycle={false} />
+
+        {/* Modal */}
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center relative">
+              <button
+                className="absolute top-2 right-4 text-2xl text-gray-500 hover:text-red-500"
+                onClick={() => setShowModal(false)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <img
+                src="https://static.independent.co.uk/2025/03/18/8/44/Screenshot-2025-03-18-at-08-04-13.png"
+                alt="John Cena"
+                className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-yellow-400 object-cover"
+              />
+              <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
+              <p className="mb-4 text-gray-800">
+                John Cena's <span className="font-semibold text-blue-600">face turn</span> happened on <span className="font-semibold">1st August SmackDown</span>!
+              </p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
+              <ul className="mb-2 text-left">
+                {predictedNights.map((night, idx) => (
+                  <li key={idx} className="mb-1">
+                    <span className="font-bold text-yellow-700">{night.date}:</span> <span className="text-gray-800">{night.event}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </>
     </div>
   );
 };
 
 export default JohnCenaCountdown;
+
+const predictedNights = [
+  { date: "2025-08-03", event: "SUMMERSLAM (EAST RUTHERFORD, NJ)" },
+  { date: "2025-08-08", event: "SMACKDOWN (MONTREAL, QC)" },
+  { date: "2025-08-22", event: "SMACKDOWN (DUBLIN, IRELAND)" },
+  { date: "2025-08-29", event: "SMACKDOWN (LYON, FRANCE)" },
+  { date: "2025-08-31", event: "CLASH IN PARIS (PARIS, FRANCE)" },
+  { date: "2025-09-05", event: "SMACKDOWN (CHICAGO, IL)" },
+  { date: "2025-09-15", event: "RAW (SPRINGFIELD, MA)" },
+  { date: "2025-10-11", event: "CROWN JEWEL: PERTH (PERTH, AUSTRALIA)" },
+  { date: "2025-11-29", event: "SURVIVOR SERIES (San Diego)" }
+];
