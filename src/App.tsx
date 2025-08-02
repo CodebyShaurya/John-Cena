@@ -307,11 +307,15 @@ const JohnCenaCountdown: React.FC = () => {
         {/* Modal */}
         {showModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center relative">
+            <div
+              className="bg-white rounded-2xl shadow-2xl p-4 pt-12 max-w-md w-full text-center relative overflow-y-auto max-h-[90vh] sm:max-h-[80vh]"
+              style={{ boxSizing: 'border-box' }}
+            >
               <button
-                className="absolute top-2 right-4 text-2xl text-gray-500 hover:text-red-500"
+                className="fixed sm:absolute top-4 right-6 sm:top-2 sm:right-4 text-3xl sm:text-2xl text-gray-500 hover:text-red-500 z-10 bg-white/80 rounded-full px-2 py-0.5"
                 onClick={() => setShowModal(false)}
                 aria-label="Close"
+                style={{ lineHeight: 1 }}
               >
                 &times;
               </button>
