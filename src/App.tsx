@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Analytics } from "@vercel/analytics/next"
 
 interface Photo {
   url: string;
@@ -23,6 +22,8 @@ const JohnCenaCountdown: React.FC = () => {
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
+  const [showModal, setShowModal] = useState(true);
+  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   // Sample John Cena photos with associated colors
   const johnCenaPhotos: Photo[] = [
@@ -88,6 +89,12 @@ const JohnCenaCountdown: React.FC = () => {
 
     return () => clearInterval(photoTimer);
   }, [johnCenaPhotos.length]);
+
+  useEffect(() => {
+    const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 
   const PhotoDisplay: React.FC<PhotoDisplayProps> = () => (
@@ -178,13 +185,13 @@ const JohnCenaCountdown: React.FC = () => {
         {/* Subtitle */}
         <div className="text-center mb-8">
           <h1 className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 transition-colors duration-1000 ${isWhiteTheme ? 'text-black' : 'text-white'}`}>
-            FAREWELL TOUR
+            JOHN CENA'S FAREWELL TOUR
           </h1>
           <p className={`text-lg md:text-xl lg:text-2xl font-medium transition-colors duration-1000 ${isWhiteTheme ? 'text-gray-700' : 'text-gray-300'}`}>
-            The Final Chapter
+            The Last Time is Now
           </p>
           <p className={`mt-2 text-sm md:text-lg lg:text-xl transition-colors duration-1000 ${isWhiteTheme ? 'text-gray-600' : 'text-gray-400'}`}>
-            Don't miss the legendary wrestler's final performances
+            Don't miss The GOAT's final performances
           </p>
         </div>
 
