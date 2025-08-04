@@ -19,7 +19,7 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 13
+    days: 12
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
@@ -326,7 +326,7 @@ const JohnCenaCountdown: React.FC = () => {
               />
               <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
               <p className="mb-4 text-gray-800">
-                John Cena's <span className="font-semibold text-blue-600">face turn</span> happened on <span className="font-semibold">1st August SmackDown</span>!
+                <span className="font-semibold">John lost WWE Undisputed Championship to Cody Rhodes</span>!
               </p>
               <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
               <ul className="mb-2 text-left">
@@ -347,7 +347,7 @@ const JohnCenaCountdown: React.FC = () => {
 export default JohnCenaCountdown;
 
 const predictedNights = [
-  { date: "2025-08-03", event: "SUMMERSLAM (EAST RUTHERFORD, NJ)" },
+  // { date: "2025-08-03", event: "SUMMERSLAM (EAST RUTHERFORD, NJ)" },
   { date: "2025-08-08", event: "SMACKDOWN (MONTREAL, QC)" },
   { date: "2025-08-22", event: "SMACKDOWN (DUBLIN, IRELAND)" },
   { date: "2025-08-29", event: "SMACKDOWN (LYON, FRANCE)" },
