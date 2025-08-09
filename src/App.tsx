@@ -348,7 +348,7 @@ export default JohnCenaCountdown;
 
 const predictedNights = [
   // { date: "2025-08-03", event: "SUMMERSLAM (EAST RUTHERFORD, NJ)" },
-  { date: "2025-08-08", event: "SMACKDOWN (MONTREAL, QC)" },
+  // { date: "2025-08-08", event: "SMACKDOWN (MONTREAL, QC)" },
   { date: "2025-08-22", event: "SMACKDOWN (DUBLIN, IRELAND)" },
   { date: "2025-08-29", event: "SMACKDOWN (LYON, FRANCE)" },
   { date: "2025-08-31", event: "CLASH IN PARIS (PARIS, FRANCE)" },
