@@ -326,7 +326,7 @@ const JohnCenaCountdown: React.FC = () => {
               />
               <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
               <p className="mb-4 text-gray-800">
-                <span className="font-semibold">John lost WWE Undisputed Championship to Cody Rhodes</span>!
+                <span className="font-semibold">John to face Logan Paul at Clash in Paris</span>!
               </p>
               <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
               <ul className="mb-2 text-left">
