@@ -19,7 +19,7 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 10
+    days: 9
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
@@ -326,7 +326,7 @@ const JohnCenaCountdown: React.FC = () => {
               />
               <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
               <p className="mb-4 text-gray-800">
-                <span className="font-semibold">John to face Logan Paul at Clash in Paris</span>!
+                <span className="font-semibold">John to face Logan Paul tonight</span>!
               </p>
               <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
               <ul className="mb-2 text-left">
@@ -349,8 +349,6 @@ export default JohnCenaCountdown;
 const predictedNights = [
   // { date: "2025-08-03", event: "SUMMERSLAM (EAST RUTHERFORD, NJ)" },
   // { date: "2025-08-08", event: "SMACKDOWN (MONTREAL, QC)" },
-  { date: "2025-08-22", event: "SMACKDOWN (DUBLIN, IRELAND)" },
-  { date: "2025-08-29", event: "SMACKDOWN (LYON, FRANCE)" },
   { date: "2025-08-31", event: "CLASH IN PARIS (PARIS, FRANCE)" },
   { date: "2025-09-05", event: "SMACKDOWN (CHICAGO, IL)" },
   { date: "2025-09-15", event: "RAW (SPRINGFIELD, MA)" },
