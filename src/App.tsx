@@ -19,7 +19,7 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 8
+    days: 7
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
@@ -324,10 +324,10 @@ const JohnCenaCountdown: React.FC = () => {
                 alt="John Cena"
                 className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-yellow-400 object-cover"
               />
-              {/* <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
+               <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
               <p className="mb-4 text-gray-800">
-                <span className="font-semibold"></span>!
-              </p> */}
+                <span className="font-semibold">John Cena to face the Beast at Wrestlepalooza</span>!
+              </p> 
               <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
               <ul className="mb-2 text-left">
                 {predictedNights.map((night, idx) => (
@@ -347,12 +347,11 @@ const JohnCenaCountdown: React.FC = () => {
 export default JohnCenaCountdown;
 
 const predictedNights = [
-  // { date: "2025-08-03", event: "SUMMERSLAM (EAST RUTHERFORD, NJ)" },
-  // { date: "2025-08-08", event: "SMACKDOWN (MONTREAL, QC)" },
-  // { date: "2025-08-31", event: "CLASH IN PARIS (PARIS, FRANCE)" },
-  { date: "2025-09-05", event: "SMACKDOWN (CHICAGO, IL)" },
   { date: "2025-09-15", event: "RAW (SPRINGFIELD, MA)" },
+  { date: "2025-09-20", event: "WRESTLEPALOOZA (INDIANAPOLIS, IN)" },
   { date: "2025-10-11", event: "CROWN JEWEL: PERTH (PERTH, AUSTRALIA)" },
-  { date: "2025-11-29", event: "SURVIVOR SERIES (San Diego)" },
-  { date: "Mid December", event: "Unknown" },
+  { date: "2025-11-10", event: "RAW (BOSTON, MA)" },
+  { date: "2025-11-17", event: "SMACKDOWN (NEW YORK CITY, NY)" },
+  { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
+  { date: "2025-12-13", event: "THE ONE FINAL TIME" },
 ];
