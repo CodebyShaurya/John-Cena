@@ -323,7 +323,7 @@ const JohnCenaCountdown: React.FC = () => {
               <img
                 src="https://preview.redd.it/official-poster-for-john-cenas-last-match-at-saturday-v0-1g4pw3mpmasf1.jpeg?width=640&crop=smart&auto=webp&s=6ba5e0a497ba36cf443cb4a691a7eef165630c4b"
                 alt="John Cena"
-                className="w-96 h-[450px] mx-auto mb-4  object-cover"
+                className="w-96 h-[450px] rounded-xl mx-auto mb-4  object-cover"
               />
                
               <p className="mb-4 text-gray-800">
