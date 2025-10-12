@@ -349,7 +349,7 @@ export default JohnCenaCountdown;
 
 const predictedNights = [
   { date: "2025-11-10", event: "RAW (BOSTON, MA)" },
-  { date: "2025-11-17", event: "SMACKDOWN (NEW YORK CITY, NY)" },
+  { date: "2025-11-17", event: "RAW (MADISON SQUARE GARDEN, NY)" },
   { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
   { date: "2025-12-13", event: "SNME (WASHINGTON, DC)" },
 ];
