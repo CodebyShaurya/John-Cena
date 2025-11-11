@@ -19,7 +19,7 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 4
+    days: 3
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
@@ -321,13 +321,13 @@ const JohnCenaCountdown: React.FC = () => {
               </button>
               <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
               <img
-                src="https://preview.redd.it/official-poster-for-john-cenas-last-match-at-saturday-v0-1g4pw3mpmasf1.jpeg?width=640&crop=smart&auto=webp&s=6ba5e0a497ba36cf443cb4a691a7eef165630c4b"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpojx_LyQtNeG9hNgsANZ9pwX0h-YA0QT95g&s"
                 alt="John Cena"
                 className="w-96 h-[450px] rounded-xl mx-auto mb-4  object-cover"
               />
                
               <p className="mb-4 text-gray-800">
-                <span className="font-semibold"> John beats AJ at Crown Jewel!</span>
+                <span className="font-semibold"> Cena becomes Grand Slam champion!</span>
               </p> 
               <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
               <ul className="mb-2 text-left">
@@ -348,7 +348,6 @@ const JohnCenaCountdown: React.FC = () => {
 export default JohnCenaCountdown;
 
 const predictedNights = [
-  { date: "2025-11-10", event: "RAW (BOSTON, MA)" },
   { date: "2025-11-17", event: "RAW (MADISON SQUARE GARDEN, NY)" },
   { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
   { date: "2025-12-13", event: "SNME (WASHINGTON, DC)" },
