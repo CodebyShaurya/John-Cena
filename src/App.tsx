@@ -19,7 +19,7 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 3
+    days: 2
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
@@ -348,7 +348,6 @@ const JohnCenaCountdown: React.FC = () => {
 export default JohnCenaCountdown;
 
 const predictedNights = [
-  { date: "2025-11-17", event: "RAW (MADISON SQUARE GARDEN, NY)" },
   { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
   { date: "2025-12-13", event: "SNME (WASHINGTON, DC)" },
 ];
