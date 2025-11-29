@@ -19,11 +19,11 @@ interface PhotoDisplayProps {
 const JohnCenaCountdown: React.FC = () => {
   
   const [timeLeft] = useState<TimeLeft>({
-    days: 2
+    days: 1
   });
 
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   // Sample John Cena photos with associated colors
@@ -231,7 +231,7 @@ const JohnCenaCountdown: React.FC = () => {
                 transition-colors duration-300
                 group-hover:underline
               `}>
-                Days Left
+                Day Left
               </span>
             </div>
             {/* Photo */}
@@ -273,7 +273,7 @@ const JohnCenaCountdown: React.FC = () => {
                 transition-colors duration-300
                 group-hover:underline
               `}>
-                Days Left
+                Day Left
               </span>
             </div>
 
@@ -348,6 +348,6 @@ const JohnCenaCountdown: React.FC = () => {
 export default JohnCenaCountdown;
 
 const predictedNights = [
-  { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
+  // { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
   { date: "2025-12-13", event: "SNME (WASHINGTON, DC)" },
 ];
