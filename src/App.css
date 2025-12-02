@@ -1,0 +1,22 @@
+
+.parallax-section {
+  position: relative;
+  will-change: transform, opacity;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.parallax-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parallax-section:not(:first-child) {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.parallax-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,95 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 
-interface Photo {
-  url: string;
-  color: string;
-  bgClass: string;
-}
-
 interface TimeLeft {
   days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
-
-interface PhotoDisplayProps {
-  position: 'left' | 'right';
+interface WorldTitle {
+  title: string;
+  reign: number;
+  date: string;
+  defeated?: string;
+  location: string;
 }
 
-const JohnCenaCountdown: React.FC = () => {
-  
-  const [timeLeft] = useState<TimeLeft>({
-    days: 1
+interface WrestleManiaMatch {
+  year: number;
+  event: string;
+  opponent: string;
+  result: string;
+  stipulation?: string;
+}
+
+const JohnCenaTribute: React.FC = () => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   });
-
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);
-  const [showModal, setShowModal] = useState(false);
+  
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
-  // Sample John Cena photos with associated colors
-  const johnCenaPhotos: Photo[] = [
-    {
-      url: 'https://static.independent.co.uk/2025/03/18/8/44/Screenshot-2025-03-18-at-08-04-13.png',
-      color: 'red',
-      bgClass: 'from-red-900 to-red-800'
-    },
-    {
-      url: 'https://www.usanetwork.com/sites/usablog/files/2022/05/wwe-john-cena.jpg',
-      color: 'green',
-      bgClass: 'from-green-900 to-green-800'
-    },
-    {
-      url: 'https://www.cultaholic.com/_next/image?url=%2Fmedia%2FJohn%20Cena%20Raw%20Netflix%20Debut.jpg&w=3840&q=75',
-      color: 'blue',
-      bgClass: 'from-blue-900 to-blue-800'
-    },
-    {
-      url: 'https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4535x3023+0+0/resize/1100/quality/50/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F51%2F42%2F00925bff4873b9d348cdbe4eff09%2Fgettyimages-2206240021.jpg',
-      color: 'black',
-      bgClass: 'from-gray-900 to-black'
-    },
-    {
-      url: 'https://www.wwe.com/f/styles/gallery_img_l/public/photo/image/2013/04/RAW_1040_Photo_158.jpg',
-      color: 'white',
-      bgClass: 'from-gray-100 to-gray-300'
-    }
-  ];
-
-  // John Cena logo placeholder (replace with actual logo)
-  // const johnCenaLogo = 'https://via.placeholder.com/200x100/333333/FFFFFF?text=JOHN+CENA';
-
-  const currentPhoto = johnCenaPhotos[currentPhotoIndex];
-  const isWhiteTheme = currentPhoto.color === 'white';
-
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     const now = new Date().getTime();
-  //     const distance = targetDate - now;
-
-  //     if (distance > 0) {
-  //       setTimeLeft({
-  //         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-  //         hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-  //         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-  //         seconds: Math.floor((distance % (1000 * 60)) / 1000)
-  //       });
-  //     } else {
-  //       setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  //     }
-  //   }, 1000);
-
-  //   return () => clearInterval(timer);
-  // }, [targetDate]);
+  const targetDate = new Date('2025-12-13T20:00:00').getTime();
 
   useEffect(() => {
-    const photoTimer = setInterval(() => {
-      setCurrentPhotoIndex((prevIndex) => 
-        (prevIndex + 1) % johnCenaPhotos.length
-      );
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
     }, 1000);
 
-    return () => clearInterval(photoTimer);
-  }, [johnCenaPhotos.length]);
+    return () => clearInterval(timer);
+  }, [targetDate]);
 
   useEffect(() => {
     const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
@@ -97,257 +62,310 @@ const JohnCenaCountdown: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const worldTitles: WorldTitle[] = [
+    { title: "WWE Championship", reign: 1, date: "April 3, 2005", defeated: "JBL", location: "WrestleMania 21" },
+    { title: "WWE Championship", reign: 2, date: "January 8, 2006", defeated: "Edge", location: "New Year's Revolution" },
+    { title: "WWE Championship", reign: 3, date: "September 17, 2006", defeated: "Edge", location: "Unforgiven" },
+    // { title: "WWE Championship", reign: 4, date: "October 7, 2007", defeated: "Randy Orton", location: "No Mercy" },
+    { title: "World Heavyweight Championship", reign: 4, date: "November 16, 2008", defeated: "Chris Jericho", location: "Survivor Series" },
+    { title: "WWE Championship", reign: 5, date: "April 26, 2009", defeated: "Edge", location: "WrestleMania 25" },
+    { title: "WWE Championship", reign: 6, date: "September 13, 2009", defeated: "Randy Orton", location: "Breaking Point" },
+    { title: "WWE Championship", reign: 7, date: "October 25, 2009", defeated: "Randy Orton", location: "Bragging Rights" },
+    { title: "WWE Championship", reign: 8, date: "March 28, 2010", defeated: "HHH", location: "Elimination Chamber" },
+    { title: "WWE Championship", reign: 9, date: "May 17, 2010", defeated: "Batista", location: "WrestleMania XXVI" },
+    // { title: "WWE Championship", reign: 10, date: "July 25, 2010", defeated: "Sheamus", location: "Money in the Bank" },
+    // { title: "WWE Championship", reign: 11, date: "September 19, 2010", defeated: "Wade Barrett", location: "Night of Champions" },
+    { title: "WWE Championship", reign: 10, date: "May 1, 2011", defeated: "The Miz", location: "Extreme Rules" },
+    { title: "WWE Championship", reign: 11, date: "July 25, 2011", defeated: "Rey Mysterio", location: "Raw" },
+    { title: "World Heavyweight Championship", reign: 12, date: "September 18, 2011", defeated: "Alberto Del Rio", location: "Night of Champions" },
+    {title: "WWE Championship", reign: 13, date: "April 7, 2013", defeated: "The Rock", location: "WrestleMania 29" },
+    { title: "WWE Championship", reign: 14, date: "September 15, 2013", defeated: "Alberto Del Rio", location: "Hell in a Cell" },
+    { title: "World Heavyweight Championship", reign: 15, date: "June 29, 2014", defeated: "Randy Orton", location: "Money in the Bank" },
+    { title: "WWE Championship", reign: 16, date: "January 29, 2017", defeated: "AJ Styles", location: "Royal Rumble" },
+    { title: "Undisputed WWE Universal Championship", reign: 17, date: "April 20, 2025", defeated: "Cody Rhodes", location: "WrestleMania 41" }
+  ];
 
-  const PhotoDisplay: React.FC<PhotoDisplayProps> = () => (
-    <div className="hidden lg:block w-80 h-full">
-      <div className="h-full flex items-center justify-center">
-        <div className="relative">
-          <div className={`absolute inset-0 ${isWhiteTheme ? 'bg-gray-200' : 'bg-black'} opacity-20 rounded-2xl blur-2xl transform translate-x-2 translate-y-2 transition-all duration-1000`}></div>
-          <img
-            src={currentPhoto.url}
-            alt={`John Cena ${currentPhotoIndex + 1}`}
-            className="relative w-72 h-96 object-cover rounded-2xl shadow-2xl transition-all duration-1000 border-4 border-white/10"
-          />
-          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-t ${isWhiteTheme ? 'from-black/20 to-transparent' : 'from-white/10 to-transparent'} transition-all duration-1000`}></div>
+  const wrestleManiaMatches: WrestleManiaMatch[] = [
+    { year: 2004, event: "WrestleMania XX", opponent: "Big Show", result: "Won", stipulation: "United States Championship" },
+    { year: 2005, event: "WrestleMania 21", opponent: "JBL", result: "Won", stipulation: "WWE Championship" },
+    { year: 2006, event: "WrestleMania 22", opponent: "Triple H", result: "Won", stipulation: "WWE Championship" },
+    { year: 2007, event: "WrestleMania 23", opponent: "Shawn Michaels", result: "Won", stipulation: "WWE Championship" },
+    { year: 2008, event: "WrestleMania XXIV", opponent: "Randy Orton & Triple H", result: "Won", stipulation: "WWE Championship Triple Threat" },
+    { year: 2009, event: "WrestleMania XXV", opponent: "Edge & Big Show", result: "Won", stipulation: "World Heavyweight Championship Triple Threat" },
+    { year: 2010, event: "WrestleMania XXVI", opponent: "Batista", result: "Won", stipulation: "WWE Championship" },
+    { year: 2011, event: "WrestleMania XXVII", opponent: "The Miz", result: "Lost" },
+    { year: 2012, event: "WrestleMania XXVIII", opponent: "The Rock", result: "Lost", stipulation: "Once in a Lifetime" },
+    { year: 2013, event: "WrestleMania 29", opponent: "The Rock", result: "Won", stipulation: "WWE Championship" },
+    { year: 2014, event: "WrestleMania XXX", opponent: "Bray Wyatt", result: "Won" },
+    { year: 2015, event: "WrestleMania 31", opponent: "Rusev", result: "Won", stipulation: "United States Championship" },
+    { year: 2016, event: "WrestleMania 32", opponent: "AJ Styles", result: "Won" },
+    { year: 2017, event: "WrestleMania 33", opponent: "Nikki Bella vs. Miz & Maryse", result: "Won", stipulation: "Mixed Tag Team Match" },
+    { year: 2018, event: "WrestleMania 34", opponent: "The Undertaker", result: "Lost" },
+    { year: 2021, event: "WrestleMania 37", opponent: "Roman Reigns & Edge", result: "Lost", stipulation: "Universal Championship Triple Threat" },
+    { year: 2023, event: "WrestleMania 39", opponent: "Austin Theory", result: "Won", stipulation: "United States Championship" }
+  ];
+
+  const achievements = [
+    "🏆 17-time World Champion ",
+    "🥇 5-time United States Champion",
+    "👥 4-time Tag Team Champion (2x World Tag Team, 2x WWE Tag Team)",
+    "💼 2012 Money in the Bank winner",
+    "👑 2008 & 2013 Royal Rumble winner",
+    "⭐ 2012 Superstar of the Year",
+    "🎖️ WWE Grand Slam Champion",
+    "👑 WWE Triple Crown Champion",
+    "❤️ Most Make-A-Wish visits (over 650)",
+    "🎬 Hollywood actor (Fast & Furious, Peacemaker, The Suicide Squad)",
+    "📅 16 years as WWE's top star (2005-2021)",
+    "⏰ Longest combined WWE Championship reign of the modern era"
+  ];
+
+  const renderCountdown = () => (
+    <section className="min-h-screen flex items-center   p-8 bg-[url('/countdown.jpg')] bg-cover bg-center">
+      <div className=" max-w-6xl">
+        <h1 className="text-4xl md:text-7xl lg:text-9xl font-black text-white mb-6 drop-shadow-2xl">
+          JOHN CENA
+        </h1>
+        <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-yellow-200 mb-4">
+          FINAL MATCH COUNTDOWN
+        </h2>
+        <p className="text-lg md:text-2xl lg:text-3xl text-white/90 mb-12 font-semibold">
+          December 13th, 2025 - The Last Time is Now
+        </p>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {[
+            { label: 'Days', value: timeLeft.days },
+            { label: 'Hours', value: timeLeft.hours },
+            { label: 'Minutes', value: timeLeft.minutes },
+            { label: 'Seconds', value: timeLeft.seconds }
+          ].map((item, index) => (
+            <div key={index} className="bg-white/95 backdrop-blur text-black p-6 md:p-4 rounded-2xl shadow-2xl border-4 border-yellow-400 transform hover:scale-105 transition-transform">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-black text-red-600 text-center">{item.value}</div>
+              <div className="text-sm md:text-lg lg:text-xl font-bold text-gray-800 text-center">{item.label}</div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 
-  const MobilePhotoDisplay: React.FC = () => (
-    <div className="lg:hidden w-full mb-8">
-      <div className="max-w-sm mx-auto relative">
-        <div className={`absolute inset-0 ${isWhiteTheme ? 'bg-gray-200' : 'bg-black'} opacity-20 rounded-2xl blur-xl transform translate-x-1 translate-y-1 transition-all duration-1000`}></div>
-        <img
-          src={currentPhoto.url}
-          alt={`John Cena ${currentPhotoIndex + 1}`}
-          className="relative w-full h-64 object-cover rounded-2xl shadow-xl transition-all duration-1000 border-4 border-white/10"
-        />
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-t ${isWhiteTheme ? 'from-black/20 to-transparent' : 'from-white/10 to-transparent'} transition-all duration-1000`}></div>
+  const renderAchievements = () => (
+    <section className="min-h-screen  p-8 flex items-center bg-[url('/images/2k.jpg')] bg-cover bg-center">
+      <div className="max-w-6xl mx-auto w-full">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl text-center text-white mb-12 drop-shadow-lg font-extrabold">
+          CAREER ACHIEVEMENTS
+        </h2>
+
+        <div className='flex flex-rows justify-between'>
+          <div className="flex flex-col justify-between gap-2 w-1/4">
+            {achievements.slice(0,6).map((achievement, index) => (
+              <div key={index} className="bg-blue-500 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30 hover:border-yellow-400 transition-all hover:bg-white/20">
+                <p className="text-white text-lg md:text-xl font-medium leading-relaxed">{achievement}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col justify-between gap-2 w-1/4">
+            {achievements.slice(6,12).map((achievement, index) => (
+              <div key={index} className="bg-blue-500 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30 hover:border-yellow-400 transition-all hover:bg-white/20">
+                <p className="text-white text-lg md:text-xl font-medium leading-relaxed">{achievement}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
       </div>
-    </div>
+    </section>
   );
 
-  // Helper to get color classes based on theme
-  const getThemeColor = (color: string) => {
-    switch (color) {
-      case 'red':
-        return {
-          border: 'border-red-500',
-          shadow: 'shadow-red-400/60',
-          ring: 'ring-red-400/40',
-          label: 'text-red-600'
-        };
-      case 'green':
-        return {
-          border: 'border-green-500',
-          shadow: 'shadow-green-400/60',
-          ring: 'ring-green-400/40',
-          label: 'text-green-600'
-        };
-      case 'blue':
-        return {
-          border: 'border-blue-500',
-          shadow: 'shadow-blue-400/60',
-          ring: 'ring-blue-400/40',
-          label: 'text-blue-600'
-        };
-      case 'black':
-        return {
-          border: 'border-gray-300',
-          shadow: 'shadow-gray-300/60',
-          ring: 'ring-gray-300/40',
-          label: 'text-gray-300'
-        };
-      case 'white':
-        return {
-          border: 'border-yellow-400',
-          shadow: 'shadow-yellow-400/60',
-          ring: 'ring-yellow-400/40',
-          label: 'text-yellow-600'
-        };
-      default:
-        return {
-          border: 'border-yellow-400',
-          shadow: 'shadow-yellow-400/60',
-          ring: 'ring-yellow-400/40',
-          label: 'text-yellow-300'
-        };
-    }
-  };
+  const renderWorldTitles = () => (
+    <section className="min-h-screen flex justify-end p-8 bg-[url('/17.jpg')] bg-cover bg-center">
+      <div className="max-w-6xl ">
+        <h2
+          className="text-4xl md:text-6xl lg:text-7xl font-black text-center mb-12 drop-shadow-lg inline-block px-6 py-2 rounded-md"
+          style={{
+            color: '#fff',
+            WebkitTextStroke: '2px #000',
+            textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+          }}
+        >
+          17 WORLD TITLE REIGNS
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {worldTitles.map((title, index) => (
+            <div
+              key={index}
+              className="bg-black/50 p-4 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-4"
+            >
+              {/* Left: Reign Number */}
+              <div className="text-4xl md:text-5xl font-black text-white">
+                #{title.reign}
+              </div>
 
-  const themeColor = getThemeColor(currentPhoto.color);
+              {/* Middle: Date and Location */}
+              <div className="flex-1">
+                {/* <h3 className="text-xl md:text-2xl font-black text-black mb-1">
+                  {title.title}
+                </h3> */}
+                <p className="text-white font-bold text-lg mb-1">{title.date}</p>
+                <p className="text-gray-300 font-medium">{title.location}</p>
+              </div>
+
+              {/* Right: Image of Defeated Wrestler */}
+              {title.defeated && (
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-4 border-gray-300">
+                  <img
+                    src={`/images/${title.defeated.toLowerCase().replace(/\s+/g, '-')}.png`}
+                    alt={title.defeated}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+
+  const renderWrestleMania = () => (
+    <section className="min-h-screen  p-8 bg-[url('https://static0.thesportsterimages.com/wordpress/wp-content/uploads/2025/03/john-cena-raw-march-17-2025-cropped.jpg')] bg-no-repeat bg-contain ">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-center text-yellow-400 mb-12 drop-shadow-lg">
+          WRESTLEMANIA MATCHES
+        </h2>
+        <div className="space-y-6">
+          {wrestleManiaMatches.map((match, index) => (
+            <div key={index} className={`p-6 rounded-xl shadow-xl border-l-8 ${
+              match.result === 'Won' 
+                ? 'bg-green-800/80 border-green-400 hover:bg-green-700/80' 
+                : 'bg-red-800/80 border-red-400 hover:bg-red-700/80'
+            } backdrop-blur-sm transition-all hover:scale-[1.02]`}>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                    {match.event} ({match.year})
+                  </h3>
+                  <p className="text-gray-200 text-lg font-semibold mb-1">vs. {match.opponent}</p>
+                  {match.stipulation && (
+                    <p className="text-gray-300 font-medium">{match.stipulation}</p>
+                  )}
+                </div>
+                <div className={`text-3xl md:text-4xl font-black mt-4 md:mt-0 ${
+                  match.result === 'Won' ? 'text-green-300' : 'text-red-300'
+                }`}>
+                  {match.result}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+
+  const renderBio = () => (
+    <section className="min-h-screen bg-gradient-to-br from-gray-900 to-black p-8 flex items-center ">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-yellow-400 mb-12 drop-shadow-lg">
+          ABOUT JOHN CENA
+        </h2>
+        <div className="bg-white/10 backdrop-blur-lg p-8 md:p-12 rounded-2xl shadow-2xl border border-yellow-400/30">
+          <img 
+            src="https://www.wwe.com/f/styles/gallery_img_l/public/photo/image/2013/04/RAW_1040_Photo_158.jpg" 
+            alt="John Cena" 
+            className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full mx-auto mb-8 border-8 border-yellow-400 shadow-2xl"
+          />
+          <div className="text-white text-lg md:text-xl space-y-6 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 text-left">
+              <p><strong className="text-yellow-400">Full Name:</strong> John Felix Anthony Cena Jr.</p>
+              <p><strong className="text-yellow-400">Born:</strong> April 23, 1977</p>
+              <p><strong className="text-yellow-400">Birthplace:</strong> West Newbury, Massachusetts</p>
+              <p><strong className="text-yellow-400">WWE Debut:</strong> June 27, 2002</p>
+              <p><strong className="text-yellow-400">Signature Moves:</strong> AA, Five Knuckle Shuffle, STF</p>
+              <p><strong className="text-yellow-400">Catchphrases:</strong> "You Can't See Me", "Never Give Up"</p>
+            </div>
+            <p className="text-gray-200 text-center leading-relaxed mt-8">
+              John Cena is widely regarded as one of the greatest WWE Superstars of all time. 
+              Beyond wrestling, he's a successful actor, rapper, and philanthropist who has granted 
+              more Make-A-Wish requests than any other celebrity. His 16-year run as WWE's top star 
+              made him the face of the company and a global icon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
+  useEffect(() => {
+    const handleParallax = () => {
+      const sections = document.querySelectorAll('.parallax-section');
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (
+          rect.top < window.innerHeight * 0.8 &&
+          rect.bottom > window.innerHeight * 0.2
+        ) {
+          section.classList.add('in-view');
+        } else {
+          section.classList.remove('in-view');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleParallax);
+    window.addEventListener('resize', handleParallax);
+    setTimeout(handleParallax, 100);
+
+    return () => {
+      window.removeEventListener('scroll', handleParallax);
+      window.removeEventListener('resize', handleParallax);
+    };
+  }, []);
 
   return (
-    <div className={`h-screen w-full bg-gradient-to-br ${currentPhoto.bgClass} flex flex-col justify-center p-4 transition-all duration-1000 overflow-auto`}>
-      <div className="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center">
-      {/* <Analytics /> */}
+    <div className="">
+      {/* <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={50} recycle={true} /> */}
+      
+      <style>{`
+        .parallax-section {
+          position: relative;
+          will-change: transform, opacity;
+          transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+            opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .parallax-section {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .parallax-section:not(:first-child) {
+          opacity: 0;
+          transform: translateY(100px);
+        }
+        .parallax-section.in-view {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
 
-        {/* Subtitle */}
-        <div className="text-center mb-8">
-          <h1 className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 transition-colors duration-1000 ${isWhiteTheme ? 'text-black' : 'text-white'}`}>
-            JOHN CENA'S FAREWELL TOUR
-          </h1>
-          <p className={`text-lg md:text-xl lg:text-2xl font-medium transition-colors duration-1000 ${isWhiteTheme ? 'text-gray-700' : 'text-gray-300'}`}>
-            The Last Time is Now
-          </p>
-          <p className={`mt-2 text-sm md:text-lg lg:text-xl transition-colors duration-1000 ${isWhiteTheme ? 'text-gray-600' : 'text-gray-400'}`}>
-            Don't miss The GOAT's final performances
-          </p>
-        </div>
+      <div className="parallax-section">{renderCountdown()}</div>
+      <div className="parallax-section">{renderAchievements()}</div>
+      <div className="parallax-section">{renderWorldTitles()}</div>
+      <div className="parallax-section">{renderWrestleMania()}</div>
+      <div className="parallax-section">{renderBio()}</div>
 
-        {/* Main Row: Photos + Counter */}
-        <div className="flex flex-col items-center justify-center gap-8 md:gap-12 mb-8">
-          {/* Mobile: Timer above Photo */}
-          <div className="w-full flex flex-col items-center lg:hidden mb-4">
-            {/* Timer */}
-            <div
-              className={`
-                flex flex-col items-center justify-center
-                rounded-2xl
-                p-8
-                shadow-2xl
-                border-4
-                transition-all duration-300
-                text-5xl font-extrabold
-                cursor-pointer
-                transform
-                mb-6
-                ${isWhiteTheme
-                  ? `bg-white text-black ${themeColor.border} hover:${themeColor.shadow} hover:scale-105`
-                  : `bg-black text-white ${themeColor.border} hover:${themeColor.shadow} hover:scale-105`
-                }
-                hover:${themeColor.ring}
-                group
-              `}
-              title="Countdown to the Farewell Tour"
-            >
-              <span className="mb-2 tracking-widest drop-shadow-lg group-hover:animate-pulse">
-                {timeLeft.days}
-              </span>
-              <span className={`
-                text-base font-semibold uppercase tracking-wider
-                ${themeColor.label}
-                transition-colors duration-300
-                group-hover:underline
-              `}>
-                Day Left
-              </span>
-            </div>
-            {/* Photo */}
-            <MobilePhotoDisplay />
-          </div>
-
-          {/* Desktop Row: Photos + Counter */}
-          <div className="hidden lg:flex flex-row items-center justify-center gap-12 w-full">
-            {/* Left Photo */}
-            <PhotoDisplay position="left" />
-
-            {/* Counter */}
-            <div
-              className={`
-                flex flex-col items-center justify-center
-                rounded-2xl
-                p-10 md:p-16
-                shadow-2xl
-                border-4
-                transition-all duration-300
-                text-6xl md:text-8xl lg:text-9xl font-extrabold
-                cursor-pointer
-                transform
-                ${isWhiteTheme
-                  ? `bg-white text-black ${themeColor.border} hover:${themeColor.shadow} hover:scale-110`
-                  : `bg-black text-white ${themeColor.border} hover:${themeColor.shadow} hover:scale-110`
-                }
-                hover:${themeColor.ring}
-                group
-              `}
-              title="Countdown to the Farewell Tour"
-            >
-              <span className="mb-2 tracking-widest drop-shadow-lg group-hover:animate-pulse">
-                {timeLeft.days}
-              </span>
-              <span className={`
-                text-base md:text-2xl lg:text-3xl font-semibold uppercase tracking-wider
-                ${themeColor.label}
-                transition-colors duration-300
-                group-hover:underline
-              `}>
-                Day Left
-              </span>
-            </div>
-
-            {/* Right Photo */}
-            <PhotoDisplay position="right" />
-          </div>
-        </div>
-
-        
-
-          {/* Top Logo */}
-        {/* <div className="mb-8 h-full flex justify-center">
-          <img
-            src="https://raw.githubusercontent.com/CodebyShauryaIPU/John-Cena/refs/heads/main/ucme.png"
-            alt="John Cena Logo"
-            className="h-32 md:h-36 lg:h-40 object-contain opacity-90 transition-all duration-1000"
-          />
-        </div> */}
-
-        {/* Mobile Photo Display (optional, if you want to show on mobile) */}
-        {/* <MobilePhotoDisplay /> */}
-        {/* <div className={`  w-full text-white text-center text-xl`}>
-            Developed by - <a href="https://github.com/CodebyShaurya/" target="_blank" rel="noopener noreferrer" >Shaurya</a>
-          </div> */}
-      </div>
-
-      <>
-        {/* Confetti */}
-        <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={250} recycle={false} />
-
-        {/* Modal */}
-        {showModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-            <div
-              className="bg-white rounded-2xl shadow-2xl p-4 pt-12 max-w-md w-full text-center relative overflow-y-auto max-h-[90vh] sm:max-h-[80vh]"
-              style={{ boxSizing: 'border-box' }}
-            >
-              <button
-                className="fixed sm:absolute top-4 right-6 sm:top-2 sm:right-4 text-3xl sm:text-2xl text-gray-500 hover:text-red-500 z-10 bg-white/80 rounded-full px-2 py-0.5"
-                onClick={() => setShowModal(false)}
-                aria-label="Close"
-                style={{ lineHeight: 1 }}
-              >
-                &times;
-              </button>
-              <h2 className="text-2xl font-bold mb-2 text-yellow-600">Latest News!</h2>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpojx_LyQtNeG9hNgsANZ9pwX0h-YA0QT95g&s"
-                alt="John Cena"
-                className="w-96 h-[450px] rounded-xl mx-auto mb-4  object-cover"
-              />
-               
-              <p className="mb-4 text-gray-800">
-                <span className="font-semibold"> Cena becomes Grand Slam champion!</span>
-              </p> 
-              <h3 className="text-lg font-semibold mb-2 text-gray-700">Predicted Farewell Nights:</h3>
-              <ul className="mb-2 text-left">
-                {predictedNights.map((night, idx) => (
-                  <li key={idx} className="mb-1">
-                    <span className="font-bold text-yellow-700">{night.date}:</span> <span className="text-gray-800">{night.event}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </>
+      <footer className="bg-black text-center p-8">
+        <p className="text-2xl font-bold text-yellow-400 mb-2">
+          "NEVER GIVE UP"
+        </p>
+        <p className="text-gray-400 text-lg">
+          Thank you for 22 years of memories, John Cena!
+        </p>
+      </footer>
     </div>
   );
 };
 
-export default JohnCenaCountdown;
-
-const predictedNights = [
-  // { date: "2025-11-29", event: "SURVIVOR SERIES (SAN DIEGO, CA)" },
-  { date: "2025-12-13", event: "SNME (WASHINGTON, DC)" },
-];
+export default JohnCenaTribute;
