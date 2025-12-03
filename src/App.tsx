@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Confetti from 'react-confetti';
+import { Timeline } from './components/ui/timeline';
 
 interface TimeLeft {
   days: number;
@@ -16,13 +16,7 @@ interface WorldTitle {
   location: string;
 }
 
-interface WrestleManiaMatch {
-  year: number;
-  event: string;
-  opponent: string;
-  result: string;
-  stipulation?: string;
-}
+// Removed unused WrestleManiaMatch interface
 
 const JohnCenaTribute: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -32,7 +26,7 @@ const JohnCenaTribute: React.FC = () => {
     seconds: 0
   });
   
-  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  // Removed unused windowSize state
 
   const targetDate = new Date('2025-12-13T20:00:00').getTime();
 
@@ -56,11 +50,7 @@ const JohnCenaTribute: React.FC = () => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  useEffect(() => {
-    const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // Removed window resize handler
 
   const worldTitles: WorldTitle[] = [
     { title: "WWE Championship", reign: 1, date: "April 3, 2005", defeated: "JBL", location: "WrestleMania 21" },
@@ -85,25 +75,7 @@ const JohnCenaTribute: React.FC = () => {
     { title: "Undisputed WWE Universal Championship", reign: 17, date: "April 20, 2025", defeated: "Cody Rhodes", location: "WrestleMania 41" }
   ];
 
-  const wrestleManiaMatches: WrestleManiaMatch[] = [
-    { year: 2004, event: "WrestleMania XX", opponent: "Big Show", result: "Won", stipulation: "United States Championship" },
-    { year: 2005, event: "WrestleMania 21", opponent: "JBL", result: "Won", stipulation: "WWE Championship" },
-    { year: 2006, event: "WrestleMania 22", opponent: "Triple H", result: "Won", stipulation: "WWE Championship" },
-    { year: 2007, event: "WrestleMania 23", opponent: "Shawn Michaels", result: "Won", stipulation: "WWE Championship" },
-    { year: 2008, event: "WrestleMania XXIV", opponent: "Randy Orton & Triple H", result: "Won", stipulation: "WWE Championship Triple Threat" },
-    { year: 2009, event: "WrestleMania XXV", opponent: "Edge & Big Show", result: "Won", stipulation: "World Heavyweight Championship Triple Threat" },
-    { year: 2010, event: "WrestleMania XXVI", opponent: "Batista", result: "Won", stipulation: "WWE Championship" },
-    { year: 2011, event: "WrestleMania XXVII", opponent: "The Miz", result: "Lost" },
-    { year: 2012, event: "WrestleMania XXVIII", opponent: "The Rock", result: "Lost", stipulation: "Once in a Lifetime" },
-    { year: 2013, event: "WrestleMania 29", opponent: "The Rock", result: "Won", stipulation: "WWE Championship" },
-    { year: 2014, event: "WrestleMania XXX", opponent: "Bray Wyatt", result: "Won" },
-    { year: 2015, event: "WrestleMania 31", opponent: "Rusev", result: "Won", stipulation: "United States Championship" },
-    { year: 2016, event: "WrestleMania 32", opponent: "AJ Styles", result: "Won" },
-    { year: 2017, event: "WrestleMania 33", opponent: "Nikki Bella vs. Miz & Maryse", result: "Won", stipulation: "Mixed Tag Team Match" },
-    { year: 2018, event: "WrestleMania 34", opponent: "The Undertaker", result: "Lost" },
-    { year: 2021, event: "WrestleMania 37", opponent: "Roman Reigns & Edge", result: "Lost", stipulation: "Universal Championship Triple Threat" },
-    { year: 2023, event: "WrestleMania 39", opponent: "Austin Theory", result: "Won", stipulation: "United States Championship" }
-  ];
+  // Moved WrestleMania data to timeline format
 
   const achievements = [
     "🏆 17-time World Champion ",
@@ -230,40 +202,134 @@ const JohnCenaTribute: React.FC = () => {
     </section>
   );
 
-  const renderWrestleMania = () => (
-    <section className="min-h-screen  p-8 bg-[url('https://static0.thesportsterimages.com/wordpress/wp-content/uploads/2025/03/john-cena-raw-march-17-2025-cropped.jpg')] bg-no-repeat bg-contain ">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-center text-yellow-400 mb-12 drop-shadow-lg">
-          WRESTLEMANIA MATCHES
-        </h2>
-        <div className="space-y-6">
-          {wrestleManiaMatches.map((match, index) => (
-            <div key={index} className={`p-6 rounded-xl shadow-xl border-l-8 ${
-              match.result === 'Won' 
-                ? 'bg-green-800/80 border-green-400 hover:bg-green-700/80' 
-                : 'bg-red-800/80 border-red-400 hover:bg-red-700/80'
-            } backdrop-blur-sm transition-all hover:scale-[1.02]`}>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                    {match.event} ({match.year})
-                  </h3>
-                  <p className="text-gray-200 text-lg font-semibold mb-1">vs. {match.opponent}</p>
-                  {match.stipulation && (
-                    <p className="text-gray-300 font-medium">{match.stipulation}</p>
-                  )}
-                </div>
-                <div className={`text-3xl md:text-4xl font-black mt-4 md:mt-0 ${
-                  match.result === 'Won' ? 'text-green-300' : 'text-red-300'
-                }`}>
-                  {match.result}
-                </div>
-              </div>
+  const wrestleManiaTimelineData = [
+    {
+      title: "2004-2008",
+      content: (
+        <div>
+          <p className="text-white text-xs md:text-2xl font-bold mb-8"
+           style={{
+            color: '#fff',
+            WebkitTextStroke: '1px #000',
+            textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+          }}>
+            The rise of John Cena - From midcard to main event player
+          </p>
+          <div className="space-y-4">
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania XX (2004)</h4>
+              <p className="text-green-700 font-semibold">vs. Big Show - Won (US Championship)</p>
             </div>
-          ))}
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania 21 (2005)</h4>
+              <p className="text-green-700 font-semibold">vs. JBL - Won (WWE Championship)</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania 22 (2006)</h4>
+              <p className="text-green-700 font-semibold">vs. Triple H - Won (WWE Championship)</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania 23 (2007)</h4>
+              <p className="text-green-700 font-semibold">vs. Shawn Michaels - Won (WWE Championship)</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania XXIV (2008)</h4>
+              <p className="text-green-700 font-semibold">vs. Randy Orton & Triple H - Won (Triple Threat)</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      ),
+    },
+    {
+      title: "2009-2015",
+      content: (
+        <div>
+          <p className="text-white text-xs md:text-2xl font-bold mb-8"
+           style={{
+            color: '#fff',
+            WebkitTextStroke: '1px #000',
+            textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+          }}>
+            The peak of Cenation - Dominating the main event scene
+          </p>
+          <div className="space-y-4">
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania XXV (2009)</h4>
+              <p className="text-green-700 font-semibold">vs. Edge & Big Show - Won (Triple Threat)</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania XXVI (2010)</h4>
+              <p className="text-green-700 font-semibold">vs. Batista - Won (WWE Championship)</p>
+            </div>
+            <div className="bg-red-100/50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 className="font-bold text-red-800 text-lg">WrestleMania XXVII (2011)</h4>
+              <p className="text-red-700 font-semibold">vs. The Miz - Lost</p>
+            </div>
+            <div className="bg-red-100/50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 className="font-bold text-red-800 text-lg">WrestleMania XXVIII (2012)</h4>
+              <p className="text-red-700 font-semibold">vs. The Rock - Lost (Once in a Lifetime)</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania 29 (2013)</h4>
+              <p className="text-green-700 font-semibold">vs. The Rock - Won (WWE Championship)</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania XXX (2014)</h4>
+              <p className="text-green-700 font-semibold">vs. Bray Wyatt - Won</p>
+            </div>
+            <div className="bg-green-100/50 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-green-800 text-lg">WrestleMania 31 (2015)</h4>
+              <p className="text-green-700 font-semibold">vs. Rusev - Won (US Championship)</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2016-2025",
+      content: (
+        <div>
+          <p className="text-white text-xs md:text-2xl font-bold mb-8"
+           style={{
+            color: '#fff',
+            WebkitTextStroke: '1px #000',
+            textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+          }}>
+            The Hollywood transition and part-time appearances
+          </p>
+          <div className="space-y-4">
+            <div className="bg-green-100/50 0 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-lg text-green-900 ">WrestleMania 32 (2016)</h4>
+              <p className="text-green-700 font-semibold">vs. AJ Styles - Won</p>
+            </div>
+            <div className="bg-green-100/50 0 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-lg text-green-900 ">WrestleMania 33 (2017)</h4>
+              <p className="text-green-700 font-semibold">John and Nikki Bella def. Miz and Maryse</p>
+            </div>
+            <div className="bg-red-100/50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 className="font-bold text-red-800 text-lg">WrestleMania 34 (2018)</h4>
+              <p className="text-red-700 font-semibold">vs. The Undertaker - Lost</p>
+            </div>
+          
+            <div className="bg-red-100/50 p-4 rounded-lg border-l-4 border-red-500">
+              <h4 className="font-bold text-red-800 text-lg">WrestleMania 39 (2023)</h4>
+              <p className="text-red-700 font-semibold">vs. Austin Theory - Lost</p>
+            </div>
+            <div className="bg-green-100/50 0 p-4 rounded-lg border-l-4 border-green-500">
+              <h4 className="font-bold text-lg text-green-900 ">WrestleMania 41 (2025)</h4>
+              <p className="text-green-700 font-semibold">vs. Cody Rhodes - Won (WWE Championship)</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  const renderWrestleMania = () => (
+    <div className="w-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+     
+      <Timeline data={wrestleManiaTimelineData} />
+    </div>
   );
 
   const renderBio = () => (
@@ -326,7 +392,7 @@ const JohnCenaTribute: React.FC = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="bg-black">
       {/* <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={50} recycle={true} /> */}
       
       <style>{`
