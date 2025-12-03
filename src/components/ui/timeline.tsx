@@ -36,8 +36,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-[url('/images/images.jpg')] bg-cover font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-4 px-4 md:px-8 lg:px-10">
-         <div className="max-w-7xl mx-auto  px-4 md:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto py-4 ">
+         <div className="max-w-7xl mx-auto  px-2 md:px-8 lg:px-10">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-center text-gray-400 mb-8 drop-shadow-lg"
                 style={{
             color: '#fff',

@@ -129,8 +129,8 @@ const JohnCenaTribute: React.FC = () => {
           CAREER ACHIEVEMENTS
         </h2>
 
-        <div className='flex flex-rows justify-between'>
-          <div className="flex flex-col justify-between gap-2 w-1/4">
+        <div className='flex sm:flex-rows flex-col justify-between'>
+          <div className="flex flex-col justify-between gap-2 md:w-1/4">
             {achievements.slice(0,6).map((achievement, index) => (
               <div key={index} className="bg-blue-500 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30 hover:border-yellow-400 transition-all hover:bg-white/20">
                 <p className="text-white text-lg md:text-xl font-medium leading-relaxed">{achievement}</p>
@@ -138,7 +138,7 @@ const JohnCenaTribute: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex flex-col justify-between gap-2 w-1/4">
+          <div className="flex flex-col justify-between gap-2 md:w-1/4">
             {achievements.slice(6,12).map((achievement, index) => (
               <div key={index} className="bg-blue-500 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30 hover:border-yellow-400 transition-all hover:bg-white/20">
                 <p className="text-white text-lg md:text-xl font-medium leading-relaxed">{achievement}</p>
@@ -153,7 +153,7 @@ const JohnCenaTribute: React.FC = () => {
   );
 
   const renderWorldTitles = () => (
-    <section className="min-h-screen flex justify-end p-8 bg-[url('/17.jpg')] bg-cover bg-center">
+    <section className="min-h-screen flex justify-end md:p-8 bg-[url('/17.jpg')] bg-cover bg-center">
       <div className="max-w-6xl ">
         <h2
           className="text-4xl md:text-6xl lg:text-7xl font-black text-center mb-12 drop-shadow-lg inline-block px-6 py-2 rounded-md"
@@ -165,7 +165,7 @@ const JohnCenaTribute: React.FC = () => {
         >
           17 WORLD TITLE REIGNS
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-2">
           {worldTitles.map((title, index) => (
             <div
               key={index}
