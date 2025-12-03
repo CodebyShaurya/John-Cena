@@ -129,7 +129,7 @@ const JohnCenaTribute: React.FC = () => {
           CAREER ACHIEVEMENTS
         </h2>
 
-        <div className='flex sm:flex-rows flex-col justify-between'>
+        <div className='flex sm:flex-rows flex-cols justify-between'>
           <div className="flex flex-col justify-between gap-2 md:w-1/4">
             {achievements.slice(0,6).map((achievement, index) => (
               <div key={index} className="bg-blue-500 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30 hover:border-yellow-400 transition-all hover:bg-white/20">
