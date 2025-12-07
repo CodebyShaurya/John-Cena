@@ -247,18 +247,18 @@ export default function SmoothScrollLayout(): JSX.Element {
                 17 WORLD TITLE REIGNS
               </h2>
               <div className="max-w-3xl">
-                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 px-2">
+                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 p-2">
                   {worldTitles.map((title, index) => (
                     <div
                       key={index}
-                      className="bg-black/10 p-2 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-4 w-full"
+                      className="bg-black/50 md:bg-black/10 p-2 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-4 w-full"
                     >
                       {/* Left: Reign Number */}
                       <div className="text-4xl md:text-5xl font-black text-white">
                         #{title.reign}
                       </div>
                       {/* Middle: Date and Location */}
-                      <div className="w-48">
+                      <div className="md:w-48">
                         <p className="text-white font-bold text-lg mb-1">{title.date}</p>
                         <p className="text-gray-300 font-medium">{title.location}</p>
                       </div>

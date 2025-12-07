@@ -34,8 +34,8 @@ const Slide2 = () => (
 
 const Slide3 = () => (
   <div
-    className="flex-shrink-0 w-screen h-screen flex flex-col justify-end items-center relative bg-cover bg-center"
-    style={{ backgroundImage: "url('/images/rr.png')" }}
+    className="flex-shrink-0 w-screen h-screen flex flex-col justify-end items-center relative bg-cover bg-center bg-[url('/images/rr_mob.jpg')]  md:bg-[url('/images/rr.png')] bg-cover bg-center"
+    // style={{ backgroundImage: "url('/images/rr.png')" }}
   >
     <div className="absolute inset-0 bg-black/50" />
     <div className="relative z-10 w-full max-w-2xl px-4 pb-12 md:pb-20 flex flex-col items-center">
@@ -64,7 +64,7 @@ const Slide4 = () => (
 
 const Slide5 = () => (
   <div
-    className="flex-shrink-0 w-screen h-screen flex flex-col justify-end items-center relative bg-cover bg-center bg-[url('/rr_mob.jpg')]  md:bg-[url('/rr.png')] bg-cover bg-center"
+    className="flex-shrink-0 w-screen h-screen flex flex-col justify-end items-center relative bg-cover bg-center bg-[url('/images/f9.webp')]  md:bg-[url('/images/f9.webp')] bg-cover bg-center"
     // style={{ backgroundImage: "url('/images/f9.webp')" }}
   >
     <div className="absolute inset-0 bg-black/50" />
