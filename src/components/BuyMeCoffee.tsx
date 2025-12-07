@@ -3,7 +3,7 @@ import React from 'react';
 const BuyMeCoffee: React.FC = () => {
   return (
     <a
-      href="https://www.buymeacoffee.com/codebyshaurya"
+      href="https://www.buymeacoffee.com/coding_zeus"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-6 top-[90vh] 2 -translate-y-11/12 z-50 "
