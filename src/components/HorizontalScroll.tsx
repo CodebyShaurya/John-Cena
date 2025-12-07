@@ -26,7 +26,7 @@ const Slide2 = () => (
     <div className="relative z-10 w-full max-w-2xl px-4 pb-12 md:pb-20 flex flex-col items-center">
       <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white text-center mb-2 drop-shadow-lg">Grand Slam Champion</h2>
       <p className="text-base md:text-lg lg:text-xl text-blue-100 text-center max-w-xl">
-        Cena captured the World Heavyweight Championship in 2008, solidifying his place as a top-tier wrestler.
+        Cena captured his first World Heavyweight Championship in 2008, solidifying his place as a top-tier wrestler.
       </p>
     </div>
   </div>
@@ -64,8 +64,8 @@ const Slide4 = () => (
 
 const Slide5 = () => (
   <div
-    className="flex-shrink-0 w-screen h-screen flex flex-col justify-end items-center relative bg-cover bg-center"
-    style={{ backgroundImage: "url('/images/f9.webp')" }}
+    className="flex-shrink-0 w-screen h-screen flex flex-col justify-end items-center relative bg-cover bg-center bg-[url('/rr_mob.jpg')]  md:bg-[url('/rr.png')] bg-cover bg-center"
+    // style={{ backgroundImage: "url('/images/f9.webp')" }}
   >
     <div className="absolute inset-0 bg-black/50" />
     <div className="relative z-10 w-full max-w-2xl px-4 pb-12 md:pb-20 flex flex-col items-center">

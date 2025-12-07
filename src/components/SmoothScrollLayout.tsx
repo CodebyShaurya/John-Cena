@@ -226,13 +226,13 @@ export default function SmoothScrollLayout(): JSX.Element {
     </section>
 
           <section
-            className="min-h-screen flex justify-end md:p-8 relative"
-            style={{
-              backgroundImage: "url('/images/2k25.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            className="min-h-screen flex justify-end md:p-8 relative bg-[url('/images/2k25_mob.jpg')]  md:bg-[url('/images/2k25.jpg')] bg-cover bg-center"
+            // style={{
+            //   backgroundImage: "url('/images/2k25.jpg')",
+            //   backgroundSize: 'cover',
+            //   backgroundPosition: 'center',
+            //   backgroundRepeat: 'no-repeat',
+            // }}
           >
             {/* <div className="absolute inset-0 bg-black/40 pointer-events-none" /> */}
             <div className="relative z-10 flex flex-col items-end w-full">
