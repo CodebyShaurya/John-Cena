@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Timeline } from './components/ui/timeline';
+import SmoothScrollLayout from './components/SmoothScrollLayout';
+import HorizontalScroll from './components/HorizontalScroll';
 
 interface TimeLeft {
   days: number;
@@ -93,7 +95,7 @@ const JohnCenaTribute: React.FC = () => {
   ];
 
   const renderCountdown = () => (
-    <section className="min-h-screen flex items-center   p-8 bg-[url('/countdown.jpg')] bg-cover bg-center">
+    <section className="min-h-screen flex items-center   p-8 bg-[url('/countdown_mob.jpg')]  md:bg-[url('/countdown.jpg')] bg-cover bg-center">
       <div className=" max-w-6xl">
         <h1 className="text-4xl md:text-7xl lg:text-9xl font-black text-white mb-6 drop-shadow-2xl">
           JOHN CENA
@@ -129,7 +131,7 @@ const JohnCenaTribute: React.FC = () => {
           CAREER ACHIEVEMENTS
         </h2>
 
-        <div className='flex sm:flex-rows flex-cols justify-between'>
+        {/* <div className='flex sm:flex-rows flex-cols justify-between'>
           <div className="flex flex-col justify-between gap-2 md:w-1/4">
             {achievements.slice(0,6).map((achievement, index) => (
               <div key={index} className="bg-blue-500 backdrop-blur-sm p-6 rounded-xl border border-yellow-400/30 hover:border-yellow-400 transition-all hover:bg-white/20">
@@ -145,7 +147,7 @@ const JohnCenaTribute: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
 
       </div>
@@ -153,9 +155,8 @@ const JohnCenaTribute: React.FC = () => {
   );
 
   const renderWorldTitles = () => (
-    <section className="min-h-screen flex justify-end md:p-8 bg-[url('/17.jpg')] bg-cover bg-center">
-      <div className="max-w-6xl ">
-        <h2
+    <section className="min-h-screen flex justify-end md:p-8 bg-[url('/images/2k25.jpg')] bg-cover bg-center">
+      <h2
           className="text-4xl md:text-6xl lg:text-7xl font-black text-center mb-12 drop-shadow-lg inline-block px-6 py-2 rounded-md"
           style={{
             color: '#fff',
@@ -165,11 +166,13 @@ const JohnCenaTribute: React.FC = () => {
         >
           17 WORLD TITLE REIGNS
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-2">
+      <div className="max-w-3xl ">
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 px-2">
           {worldTitles.map((title, index) => (
             <div
               key={index}
-              className="bg-black/50 p-4 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-4"
+              className="bg-black/10 p-2 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-4 w-full"
             >
               {/* Left: Reign Number */}
               <div className="text-4xl md:text-5xl font-black text-white">
@@ -177,7 +180,7 @@ const JohnCenaTribute: React.FC = () => {
               </div>
 
               {/* Middle: Date and Location */}
-              <div className="flex-1">
+              <div className="w-48">
                 {/* <h3 className="text-xl md:text-2xl font-black text-black mb-1">
                   {title.title}
                 </h3> */}
@@ -416,11 +419,14 @@ const JohnCenaTribute: React.FC = () => {
         }
       `}</style>
 
-      <div className="parallax-section">{renderCountdown()}</div>
-      <div className="parallax-section">{renderAchievements()}</div>
-      <div className="parallax-section">{renderWorldTitles()}</div>
-      <div className="parallax-section">{renderWrestleMania()}</div>
-      <div className="parallax-section">{renderBio()}</div>
+      {/* <div className="parallax-section">{renderCountdown()}</div> */}
+      {/* <div className="parallax-section">{renderAchievements()}</div> 
+      <div className="parallax-section">{renderWorldTitles()}</div>*/}
+      {/* <div className="parallax-section">{renderWrestleMania()}</div>
+      <div className="parallax-section">{renderBio()}</div> */}
+      <SmoothScrollLayout/>
+      <HorizontalScroll />
+      
 
       <footer className="bg-black text-center p-8">
         <p className="text-2xl font-bold text-yellow-400 mb-2">

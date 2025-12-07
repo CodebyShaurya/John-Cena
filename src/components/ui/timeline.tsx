@@ -33,7 +33,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-[url('/images/images.jpg')] bg-cover font-sans md:px-10"
+      className="w-full bg-[url('/images/2k23_sq.jpg')] bg-cover font-sans md:px-10"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-4 ">
