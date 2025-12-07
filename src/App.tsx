@@ -2,6 +2,7 @@ import React from 'react';
 // import { Timeline } from './components/ui/timeline';
 import SmoothScrollLayout from './components/SmoothScrollLayout';
 import HorizontalScroll from './components/HorizontalScroll';
+import BuyMeCoffee from './components/BuyMeCoffee';
 
 
 
@@ -370,26 +371,8 @@ const JohnCenaTribute: React.FC = () => {
     <div className="bg-black">
       {/* <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={50} recycle={true} /> */}
       
-      <style>{`
-        .parallax-section {
-          position: relative;
-          will-change: transform, opacity;
-          transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
-            opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-        .parallax-section {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        .parallax-section:not(:first-child) {
-          opacity: 0;
-          transform: translateY(100px);
-        }
-        .parallax-section.in-view {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
+    
+  
 
       {/* <div className="parallax-section">{renderCountdown()}</div> */}
       {/* <div className="parallax-section">{renderAchievements()}</div> 
@@ -398,6 +381,7 @@ const JohnCenaTribute: React.FC = () => {
       <div className="parallax-section">{renderBio()}</div> */}
       <SmoothScrollLayout/>
       <HorizontalScroll />
+        <BuyMeCoffee />
       
 
       <footer className="bg-black text-center p-8">
