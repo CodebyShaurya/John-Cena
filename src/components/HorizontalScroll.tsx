@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Trophy, Medal, Star, Award, Zap, Crown } from 'lucide-react';
+// import { Trophy, Medal, Star, Award, Zap, Crown } from 'lucide-react';
 
 // Individual Slide Components with full background images and bottom text
 const Slide1 = () => (
