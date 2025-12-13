@@ -197,7 +197,7 @@ export default function SmoothScrollLayout(): JSX.Element {
     <ReactLenis root>
       <main className='bg-black'>
         <div className='wrapper'>
-          <section className="h-screen w-full flex items-center   p-8 bg-[url('/countdown_mob.jpg')]  md:bg-[url('/countdown.jpg')] bg-cover bg-center  sticky top-0">
+          <section className="h-screen w-full flex items-center   p-8 bg-[url('/countdown_mob.jpg')]  md:bg-[url('/countdown.webp')] bg-cover bg-center  sticky top-0">
       <div className=" max-w-6xl">
         <h1 className="text-4xl md:text-7xl lg:text-9xl font-black text-white mb-6 drop-shadow-2xl">
           JOHN CENA
@@ -226,7 +226,7 @@ export default function SmoothScrollLayout(): JSX.Element {
     </section>
 
           <section
-            className="min-h-screen flex justify-end md:p-8 relative bg-[url('/images/2k25_mob.jpg')]  md:bg-[url('/images/2k25.jpg')] bg-cover bg-center"
+            className="min-h-screen flex justify-end md:p-8 relative bg-[url('/images/2k25_mob.webp')]  md:bg-[url('/images/2k25.webp')] bg-cover bg-center"
             // style={{
             //   backgroundImage: "url('/images/2k25.jpg')",
             //   backgroundSize: 'cover',
