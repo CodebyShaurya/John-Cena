@@ -3,7 +3,7 @@ import React from 'react';
 import SmoothScrollLayout from './components/SmoothScrollLayout';
 import HorizontalScroll from './components/HorizontalScroll';
 import BuyMeCoffee from './components/BuyMeCoffee';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 
 
